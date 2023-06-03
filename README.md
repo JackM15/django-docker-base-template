@@ -36,8 +36,8 @@ So, what do you get by using this project as a template for your project? Let's 
 
 1. Clone the repository to your computer and go to the `django-docker-template` directory:
 ```console
-git clone https://github.com/amerkurev/django-docker-template.git
-cd django-docker-template
+git clone https://github.com/JackM15/django-docker-base-template.git [your project name]
+cd [your project name]
 ```
 
 2. Build the Docker container image with Django:
