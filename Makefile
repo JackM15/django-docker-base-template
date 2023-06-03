@@ -40,3 +40,28 @@ down-v:
 # To run this command, you can use make backup. This will create a backup of the Postgres database and save it to the specified folder with a timestamped filename.
 backup:
 	docker exec $(PROJECT_NAME)_postgres_1 pg_dumpall -c -U postgres > $(BACKUP_FOLDER)/dump_`date +%d-%m-%Y"_"%H_%M_%S`.sql
+
+
+# Django Commands
+
+#  Create a new app (make app [app_name])
+app:
+	docker compose exec django python manage.py startapp $(filter-out $@,$(MAKECMDGOALS))
+%:
+	@:
+
+# Create a new migration
+migrations:
+	docker compose exec django python manage.py makemigrations
+
+# Run migrations
+migrate:
+	docker compose exec django python manage.py migrate
+
+# Create a superuser
+superuser:
+	docker compose exec django python manage.py createsuperuser
+
+# Get ip of the postgres container
+get-postgres-ip:
+	docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(PROJECT_NAME)-postgres-1

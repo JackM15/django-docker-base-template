@@ -33,7 +33,7 @@ So, what do you get by using this project as a template for your project? Let's 
 
 ### Local development using make commands
 
-1. Clone the repository to your computer and go to the `django-docker-template` directory:
+1. Clone the repository to your computer and go to the directory:
 ```console
 git clone https://github.com/JackM15/django-docker-base-template.git [your project name]
 cd [your project name]
@@ -69,11 +69,21 @@ There are multiple make commands for this project:
 - down: Stops all containers, removes them and their images.
 - down-v: Stops all containers, removes them and their images + deletes the postgres db.
 - backup:  This will create a backup of the Postgres database and save it to the specified folder (set in the variable above) with a timestamped filename.
+- get-postgres-ip: This will get the IP of the postgres container so you know which to connect to in Pgadmin.
+
+### Django specific commands
+Django specific commands can be run using the following:
+
+- app: Create a new App (make app [app_name])
+- migrations: Create a new migration (make migration)
+- migrate: Run migrations (make migration)
+- superuser: Create a Django Superuser (make superuser)
+
 
 ##
 ### For development on your computer using standard docker commands
 
-1. Clone the repository to your computer and go to the `django-docker-template` directory:
+1. Clone the repository to your computer and go to the directory:
 ```console
 git clone https://github.com/JackM15/django-docker-base-template.git [your project name]
 cd [your project name]
