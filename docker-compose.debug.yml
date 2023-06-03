@@ -17,7 +17,7 @@ services:
     command: ["sh", "-c", "su-exec user python manage.py runserver 0.0.0.0:8000"]
     volumes:
       - "media-data:/var/www/media"
-      - "./website:/usr/src/website"  # mount the source code
+      - "./project:/usr/src/project"  # mount the source code
     depends_on:
       - postgres
     labels:

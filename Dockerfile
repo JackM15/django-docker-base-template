@@ -11,7 +11,7 @@ FROM base
 
 ARG USER=user
 ARG USER_UID=1001
-ARG PROJECT_NAME=website
+ARG PROJECT_NAME=project
 ARG GUNICORN_PORT=8000
 ARG GUNICORN_WORKERS=2
 # the value is in seconds
@@ -51,10 +51,10 @@ COPY $PROJECT_NAME $DJANGO_BASE_DIR
 
 # User
 RUN chmod +x /docker-entrypoint.sh /docker-cmd.sh && \
-    apk --no-cache add su-exec libpq-dev && \
-    mkdir -p $DJANGO_STATIC_ROOT $DJANGO_MEDIA_ROOT $DJANGO_SQLITE_DIR && \
-    adduser -s /bin/sh -D -u $USER_UID $USER && \
-    chown -R $USER:$USER $DJANGO_BASE_DIR $DJANGO_STATIC_ROOT $DJANGO_MEDIA_ROOT $DJANGO_SQLITE_DIR
+	apk --no-cache add su-exec libpq-dev && \
+	mkdir -p $DJANGO_STATIC_ROOT $DJANGO_MEDIA_ROOT $DJANGO_SQLITE_DIR && \
+	adduser -s /bin/sh -D -u $USER_UID $USER && \
+	chown -R $USER:$USER $DJANGO_BASE_DIR $DJANGO_STATIC_ROOT $DJANGO_MEDIA_ROOT $DJANGO_SQLITE_DIR
 
 WORKDIR $DJANGO_BASE_DIR
 ENTRYPOINT ["/docker-entrypoint.sh"]
