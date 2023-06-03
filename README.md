@@ -70,6 +70,7 @@ There are multiple make commands for this project:
 - down-v: Stops all containers, removes them and their images + deletes the postgres db.
 - backup:  This will create a backup of the Postgres database and save it to the specified folder (set in the variable above) with a timestamped filename.
 
+##
 ### For development on your computer using standard docker commands
 
 1. Clone the repository to your computer and go to the `django-docker-template` directory:
