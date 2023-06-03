@@ -1,3 +1,4 @@
+
 # Django + Docker = ❤️
 This simple Django project is an excellent template for your future projects. It includes everything you need to quickly set up a quality technology stack and start developing your web application's business logic, skipping all the complex deployment issues at an early stage.
 
@@ -30,7 +31,46 @@ So, what do you get by using this project as a template for your project? Let's 
 
 ## How to use
 
-### For development on your computer
+### Local development using make commands
+
+1. Clone the repository to your computer and go to the `django-docker-template` directory:
+```console
+git clone https://github.com/JackM15/django-docker-base-template.git [your project name]
+cd [your project name]
+```
+
+2. Open the Makefile and edit the variables at the top.
+```console
+# Set the project name here
+
+PROJECT_NAME = django-docker-base-template
+
+# Set the backup folder here
+
+BACKUP_FOLDER = backups
+```
+
+3. In your terminal run the following command to build the project.
+```console
+make build
+```
+
+4. In your terminal run the following command to start the container and get it all running.
+```console
+make build up
+```
+
+There are multiple make commands for this project:
+- build: Builds the Docker container image with Django
+- run: Runs the Django development server inside the Django container
+- test: Runs tests for the Django project
+- shell: Starts an interactive shell with the Django project environment
+- up: Starts all services locally (Postgres, Gunicorn, Traefik) using docker-compose
+- down: Stops all containers, removes them and their images.
+- down-v: Stops all containers, removes them and their images + deletes the postgres db.
+- backup:  This will create a backup of the Postgres database and save it to the specified folder (set in the variable above) with a timestamped filename.
+
+### For development on your computer using standard docker commands
 
 1. Clone the repository to your computer and go to the `django-docker-template` directory:
 ```console

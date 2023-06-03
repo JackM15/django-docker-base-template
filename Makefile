@@ -25,9 +25,12 @@ shell:
 up:
 	docker compose -f docker-compose.debug.yml up
 
-# Stops all containers, removes them and their images. To delete the Postgre database as well, add the `-v` flag to the command
+# Stops all containers, removes them and their images.
 down:
 	docker compose down --remove-orphans --rmi local
+
+down-v:
+	docker compose down --remove-orphans --rmi local -v
 
 # Backs up the Postgres database to a folder
 # You will need to replace [backup_folder] with the path to the folder where you want to store the backup.
